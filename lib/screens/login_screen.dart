@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rushbetter/screens/signup_screen.dart';
 import 'package:rushbetter/utilities/constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -215,7 +216,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () {
+        print('Sign Up Button Pressed');
+        navigateToSignup(context);
+      },
       child: RichText(
         text: TextSpan(
           children: [
@@ -239,6 +243,10 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future navigateToSignup(context) async {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
   }
 
   @override
