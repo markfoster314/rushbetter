@@ -127,8 +127,11 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: RaisedButton(
+        onPressed: () {
+          print('Login Raised Button Pressed');
+          Navigator.pushNamed(context, '/lib/screens/home_screen.dart');
+        },
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
@@ -218,7 +221,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: () {
         print('Sign Up Button Pressed');
-        navigateToSignup(context);
+        Navigator.pushNamed(context, '/lib/screens/signup_screen.dart');
       },
       child: RichText(
         text: TextSpan(
@@ -243,10 +246,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  Future navigateToSignup(context) async {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
   }
 
   @override
